@@ -10,7 +10,6 @@
     let currentImage = 0;
     function processGuess() {
         console.log("Getting form values")
-
         secret = document.getElementById("f1secret").value
         guess = document.getElementById("f1guess").value
         if (secret == guess) {
@@ -25,27 +24,20 @@
         }
     }
     function rotateImage() {
-
-        // var image = document.getElementById('rimage');
         switch (currentImage) {
             case 0:
-                // image.src = "Ant.png";
-                document.getElementById("rimage").src="Ant.png";
+                document.getElementById("rimage").src = "Ant.png";
                 currentImage = 1;
                 break;
             case 1:
-                // image.src = "Numbat.png";
-                document.getElementById("rimage").src="Numbat.png";
+                document.getElementById("rimage").src = "Numbat.png";
                 currentImage = 2;
                 break;
             case 2:
-                // image.src = "Milkfish.png";
-                document.getElementById("rimage").src="Milkfish.png";
-
+                document.getElementById("rimage").src = "Milkfish.png";
                 currentImage = 0;
                 break;
         }
-        // onclick = document.getElementById()
     }
 </script>
 
