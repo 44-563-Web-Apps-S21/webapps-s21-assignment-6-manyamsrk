@@ -1,60 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Hidden-Assignment-6</title>
-    </head>
- 
-<body>
 
-<h2>“Hidden things by Siva Rama Krishna Manyam</h2>
+<head>
+    <title>Hidden-Assignment-6</title>
+</head>
+<script>
+    let correct = 0;
+    let wrong = 0;
+    let currentImage = 0;
+    function processGuess() {
+        console.log("Getting form values")
 
-<form>
-    <label for="f1secret">Enter the secret word</label>
-    <input type ="password" id="f1secret" name="f1secret" value=Secret> <br>
-
-    <label for="f1guess">Enter a guess</label>
-    <input type ="text" id="f1guess" name="f1guess" autofocus> <br>
-
-    <input type="button" onclick="processGuess()" value="Check the guess">
-</form>
-
-
-<p>Wrong count is: <span id="wrongc"></span></p>
-<p>Correct count is: <span id="correctc"></span></p>
-
-
-<script> 
-let correct = 0;
-let wrong = 0;
-function processGuess (){
-    console.log("Getting form values")
-    
-    secret = document.getElementById("f1secret").value
-    guess = document.getElementById("f1guess").value
-    // confirmed = confirm("Are these the values? "+age+" and "+nick)
-    if(secret == guess){
-        alert("Congratulations")
-        correct++;
-        document.getElementById("correctc").innerHTML = correct;
+        secret = document.getElementById("f1secret").value
+        guess = document.getElementById("f1guess").value
+        if (secret == guess) {
+            alert("Congratulations")
+            correct++;
+            document.getElementById("correctc").innerHTML = correct;
+        }
+        else {
+            alert("Sorry")
+            wrong++;
+            document.getElementById("wrongc").innerHTML = wrong;
+        }
     }
-    else{
-        alert("Sorry")
-        wrong++;
-        document.getElementById("wrongc").innerHTML = wrong;
+    function rotateImage() {
+
+        // var image = document.getElementById('rimage');
+        switch (currentImage) {
+            case 0:
+                // image.src = "Ant.png";
+                document.getElementById("rimage").src="Ant.png";
+                currentImage = 1;
+                break;
+            case 1:
+                // image.src = "Numbat.png";
+                document.getElementById("rimage").src="Numbat.png";
+                currentImage = 2;
+                break;
+            case 2:
+                // image.src = "Milkfish.png";
+                document.getElementById("rimage").src="Milkfish.png";
+
+                currentImage = 0;
+                break;
+        }
+        // onclick = document.getElementById()
     }
-    
-    
-    
-
-
-    // out = document.getElementById("result")
-    // if(confirmed){
-    //     out.innerHTML = "Values were confirmed"
-    // } else {
-    //     out.innerHTML = "Values were not confirmed"
-    // }
-}
 </script>
 
+<body>
+
+    <h2>“Hidden things by Siva Rama Krishna Manyam</h2>
+
+    <form>
+        <label for="f1secret">Enter the secret word</label>
+        <input type="password" id="f1secret" name="f1secret" value=Secret> <br>
+
+        <label for="f1guess">Enter a guess</label>
+        <input type="text" id="f1guess" name="f1guess" autofocus> <br>
+
+        <input type="button" onclick="processGuess()" value="Check the guess">
+    </form>
+
+
+    <p>Wrong count is: <span id="wrongc"></span></p>
+    <p>Correct count is: <span id="correctc"></span></p>
+
+    <div>
+        <img src="Milkfish.png" width="200" height="200" id="rimage" onclick="rotateImage()">
+    </div>
 </body>
-</html> 
+
+</html>
