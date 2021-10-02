@@ -6,20 +6,38 @@
     <script>
 
         function powers() {
-            bv = document.getElementById("fbase").value;
-            ev = document.getElementById("fexponent").value;
+            let bv = document.getElementById("fbase").value;
+            let ev = document.getElementById("fexponent").value;
             let result = "";
             for (let i = 1; i <= ev; i++) {
                 result += Math.pow(bv, i);
                 for (let j = i; j <= i; j++) {
                     if (j != ev) {
-                        result += ",";
+                        result += ", ";
                     }
                 }
             }
             document.getElementById("presult").innerHTML = result;
             document.getElementById("bv").innerHTML = bv;
             document.getElementById("ev").innerHTML = ev;
+        }
+        function processRadio(Calculations) {
+            let v1 = document.getElementById("fbase").value;
+            let v2 = document.getElementById("fexponent").value;
+            let p = (+v1 + +v2);
+            if (Calculations == "plus") {
+                document.getElementById("aresult").innerHTML = p;
+            }
+            else if (Calculations == "minus") {
+                document.getElementById("aresult").innerHTML = (v1 - v2);
+            }
+            else if (Calculations == "times") {
+                document.getElementById("aresult").innerHTML = v1 * v2;
+            }
+            else if (Calculations == "divide") {
+                document.getElementById("aresult").innerHTML = v1 / v2;
+            }
+
         }
 
     </script>
@@ -41,8 +59,17 @@
 
     <br>
     <div>Powers of <span id="bv"></span> are: <span id="presult"></span>
-        (exponent was <span id="ev"></span><span>)</span></div>
-
+        (exponent was <span id="ev"></span><span>)</span>
+    </div>
+    <form>
+        <input type="radio" name="Calculations" onclick="processRadio(this.value)" id="arithmetic" value="plus">+<br>
+        <input type="radio" name="Calculations" onclick="processRadio(this.value)" id="arithmetic" value="minus">-<br>
+        <input type="radio" name="Calculations" onclick="processRadio(this.value)" id="arithmetic" value="times">*<br>
+        <input type="radio" name="Calculations" onclick="processRadio(this.value)" id="arithmetic" value="divide">/<br>
+        <br>
+        <div>Result is: <span type=text id="aresult"></span></div>
+        <!-- <input type="text" id="aresult" size="20"> -->
+    </form>
 </body>
 
 </html>
