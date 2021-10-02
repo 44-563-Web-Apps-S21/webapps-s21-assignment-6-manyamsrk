@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Arithmetic Assignment-6</title>
+    <script>
+
+        function powers() {
+            bv = document.getElementById("fbase").value;
+            ev = document.getElementById("fexponent").value;
+            let result = "";
+            for (let i = 1; i <= ev; i++) {
+                result += Math.pow(bv, i);
+                for (let j = i; j <= i; j++) {
+                    if (j != ev) {
+                        result += ",";
+                    }
+                }
+            }
+            document.getElementById("presult").innerHTML = result;
+            document.getElementById("bv").innerHTML = bv;
+            document.getElementById("ev").innerHTML = ev;
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <h2>Siva Rama Krishna Manyam Computes</h2>
+
+    <form>
+        <label for="fbase">Enter a base </label>
+        <input type="number" id="fbase" name="fbase" value=10> <br>
+
+        <label for="fexponent">Enter an exponent </label>
+        <input type="number" id="fexponent" name="fexponent" autofocus value="2"> <br>
+
+        <input type="button" onclick="powers()" value="Compute">
+    </form>
+
+    <br>
+    <div>Powers of <span id="bv"></span> are: <span id="presult"></span>
+        (exponent was <span id="ev"></span><span>)</span></div>
+
+</body>
+
+</html>
