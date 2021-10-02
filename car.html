@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Car Assignment-6
+    </title>
+    <script>
+        let my_car;
+        function orderCar() {
+            electric = document.getElementById("electric").checked
+            ac = document.getElementById("ac").checked
+            gps = document.getElementById("gps").checked
+            my_car = electric + " and " + ac + " and " + gps;
+            document.getElementById("cresult").innerHTML = my_car;
+        }
+        function updateCar() {
+            color = document.getElementById("color").value;
+            property = document.getElementById("pvalue").value;
+            my_car = color + " and " + property;
+            document.getElementById("cresult").innerHTML = my_car;
+        }
+    </script>
+
+</head>
+
+<body>
+    <h2>Siva Rama Krishna Manyam orders a Car</h2>
+    <form>
+        <input type="checkbox" id="electric" name="electric" value="electric">
+        <label for="electric">Electric</label></br>
+        <input type="checkbox" id="ac" name="ac" value="ac">
+        <label for="ac">AC</label></br>
+        <input type="checkbox" id="gps" name="gps" value="gps">
+        <label for="gps">GPS</label></br>
+        <input type="button" onclick="orderCar()" value="Order a car"><br><br>
+        <label for="color">Enter a property</label>
+        <input type="text" id="color" name="color" value="color"><br>
+        <label for="pvalue">Enter a value</label>
+        <input type="text" id="pvalue" name="pvalue"><br>
+        <input type="button" onclick="updateCar()" value="Update the car">
+    </form><br>
+    <div>Value are: <span id="cresult"></span></div>
+
+</body>
+
+</html>
