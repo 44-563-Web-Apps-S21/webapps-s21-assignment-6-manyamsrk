@@ -2,25 +2,39 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
     <title>Pass-Assignment-6</title>
 </head>
 <script>
     let correct = 0;
     let wrong = 0;
+    let ad = 0;
     let currentImage = 1;
     function processPhrase() {
         console.log("Getting form values")
         secret = document.getElementById("f1secret").value
         guess = document.getElementById("f1guess").value
-        if (secret == guess) {
-            alert("Access allowed")
-            correct++;
-            document.getElementById("correctc").innerHTML = correct;
+        if (ad < 3) {
+            if (secret == guess) {
+                alert("Access allowed")
+                correct++;
+                document.getElementById("correctc").innerHTML = correct;
+            }
+            else {
+                alert("Access denied")
+                wrong++;
+                ad++;
+                document.getElementById("wrongc").innerHTML = wrong;
+            }
         }
         else {
-            alert("Access denied")
-            wrong++;
-            document.getElementById("wrongc").innerHTML = wrong;
+            alert("Account locked");
         }
     }
     function newImage() {
@@ -42,25 +56,37 @@
 </script>
 
 <body>
+    <div class="container">
+        <h2 class="text-center"><marquee>Pass phrase by Siva Rama Krishna Manyam</marquee></h2>
+        <br>
+        <form class="col g-2">
+            <div class="row mb-3">
+            <label for="f1secret" class="col-sm-2 form-label fw-bold">Enter the secret phrase</label>
+            <div class="col-sm-10">
+            <input type="password" class="form-control form-control" id="f1secret" name="f1secret" value="Let me in">
+            </div>
+            </div>
+            <br>
+            <div class="row mb-3">
+            <label for="f1guess" class="col-sm-2 form-label fw-bold">Enter a phrase</label>
+            <div class="col-sm-10">
+            <input type="text" class="form-control form-control-sm" id="f1guess" name="f1guess" autofocus> <br>
+            </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 offset-sm-2">
+            <input type="button" class="btn btn-primary" onclick="processPhrase()" value="Check the phrase">
+            </div>
+            </div>
+        </form>
+        <p class="fw-bold fst-italic">Wrong count is: <span id="wrongc" style="color: red;" class=""></span></p>
+        <p class="fw-bold fst-italic">Correct count is: <span style="color: green;" id="correctc"></span></p>
 
-    <h2>Pass phrase by Siva Rama Krishna Manyam</h2>
-
-    <form>
-        <label for="f1secret">Enter the secret phrase</label>
-        <input type="password" id="f1secret" name="f1secret" value="Let me in"> <br>
-
-        <label for="f1guess">Enter a phrase</label>
-        <input type="text" id="f1guess" name="f1guess" autofocus> <br>
-
-        <input type="button" onclick="processPhrase()" value="Check the phrase">
-    </form>
-
-
-    <p>Wrong count is: <span id="wrongc"></span></p>
-    <p>Correct count is: <span id="correctc"></span></p>
-
-    <div>
-        <img src="Milkfish.png" width="200" height="200" id="rimage" onclick=" newImage()">
+        <div class="text-center">
+            <p class="text-danger">Click below Image to see Changes</p>
+            <img class="rounded" src="Milkfish.png" width="200" height="200" id="rimage" onclick=" newImage()">
+        </div>
+    </div>
     </div>
 </body>
 
