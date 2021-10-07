@@ -13,21 +13,24 @@
         Car Assignment-6
     </title>
     <script>
-        let my_car;
+        let my_car={};
         function orderCar() {
             electric = document.getElementById("electric").checked
             ac = document.getElementById("ac").checked
             gps = document.getElementById("gps").checked
-            my_car = electric + " and " + ac + " and " + gps;
+            my_car = "electric: "+  electric + ", ac: "+ ac +", gps: " + gps;
             document.getElementById("cresult").innerHTML = my_car;
         }
         function updateCar() {
+            
             color = document.getElementById("color").value;
             property = document.getElementById("pvalue").value;
-            my_car = my_car +", "+ color + " and " + property;
+            my_car = my_car +"and color: "+ color + ", property: " + property;
             document.getElementById("cresult").innerHTML = my_car;
         }
     </script>
+
+
 
 </head>
 
