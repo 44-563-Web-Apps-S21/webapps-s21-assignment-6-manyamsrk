@@ -24,7 +24,7 @@
         function updateCar() {
             color = document.getElementById("color").value;
             property = document.getElementById("pvalue").value;
-            my_car = color + " and " + property;
+            my_car = my_car +", "+ color + " and " + property;
             document.getElementById("cresult").innerHTML = my_car;
         }
     </script>
@@ -63,8 +63,7 @@
                     <input type="button" class="btn btn-primary" onclick="updateCar()" value="Update the car">
         </form><br>
         <br>
-        <div class="fw-bold">Value are: <span id="cresult" style="background-color:cornsilk"> </span></div>
-
+        <div class="fw-bold">Value are: <span id="cresult" style="background-color:orange"> </span></div>
 </body>
 
 </html>
